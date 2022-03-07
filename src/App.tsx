@@ -8,7 +8,7 @@ const WIDTH = 858;
 const HEIGHT = 1124;
 const FONT_SIZE = 120;
 const AREA_HEIGHT = 400;
-const ESTIMATED_TEXT_PER_LINE = WIDTH / (FONT_SIZE * 1.5);
+const ESTIMATED_TEXT_PER_LINE = (WIDTH - FONT_SIZE * 4) / (FONT_SIZE * 1.5);
 
 function App() {
   const [text, setText] = useState(() => {
