@@ -38,7 +38,6 @@ function App() {
         style={{
           opacity: 0,
           position: "absolute",
-          width: WIDTH,
           height: AREA_HEIGHT,
         }}
         onChange={(e) => setText(e.target.value)}
@@ -53,6 +52,7 @@ function App() {
             y={0}
             width={WIDTH}
             height={AREA_HEIGHT}
+            fontFamily="sans-serif"
             align="center"
             verticalAlign="middle"
             onClick={() => inputRef.current?.focus()}
