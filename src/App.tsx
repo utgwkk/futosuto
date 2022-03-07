@@ -48,14 +48,9 @@ function App() {
     <div className="App">
       <input
         ref={inputRef}
+        className="input-text"
         type="text"
         value={text}
-        style={{
-          opacity: 0,
-          position: "absolute",
-          width: "calc(100% - 10rem)",
-          height: AREA_HEIGHT,
-        }}
         onChange={handleChangeText}
       />
       <Stage width={WIDTH} height={HEIGHT}>

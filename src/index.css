@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.input-text {
+  opacity: 0;
+  position: absolute;
+  width: calc(100% - 10rem);
+}
