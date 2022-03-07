@@ -43,11 +43,7 @@ function App() {
         }}
         onChange={(e) => setText(e.target.value)}
       />
-      <Stage
-        width={WIDTH}
-        height={HEIGHT}
-        onClick={() => inputRef.current?.focus()}
-      >
+      <Stage width={WIDTH} height={HEIGHT}>
         <Layer>
           <Image image={shirokoImage} width={WIDTH} height={HEIGHT} />
           <Text
@@ -59,6 +55,8 @@ function App() {
             height={AREA_HEIGHT}
             align="center"
             verticalAlign="middle"
+            onClick={() => inputRef.current?.focus()}
+            onTouchStart={() => inputRef.current?.focus()}
             fontSize={fontSize}
           />
         </Layer>
