@@ -38,6 +38,7 @@ function App() {
         style={{
           opacity: 0,
           position: "absolute",
+          width: "calc(100% - 10rem)",
           height: AREA_HEIGHT,
         }}
         onChange={(e) => setText(e.target.value)}
