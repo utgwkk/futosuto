@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import {
+  ChangeEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Image, Layer, Stage, Text } from "react-konva";
 import Konva from "konva";
 import useImage from "use-image";
@@ -29,6 +35,15 @@ function App() {
     setFontSize(FONT_SIZE * Math.sqrt(AREA_HEIGHT / computedHeight));
   }, [text]);
 
+  const handleFocus = useCallback(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const handleChangeText = useCallback<ChangeEventHandler<HTMLInputElement>>(
+    (e) => setText(e.target.value),
+    []
+  );
+
   return (
     <div className="App">
       <input
@@ -41,7 +56,7 @@ function App() {
           width: "calc(100% - 10rem)",
           height: AREA_HEIGHT,
         }}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleChangeText}
       />
       <Stage width={WIDTH} height={HEIGHT}>
         <Layer>
@@ -56,8 +71,8 @@ function App() {
             fontFamily="sans-serif"
             align="center"
             verticalAlign="middle"
-            onClick={() => inputRef.current?.focus()}
-            onTouchStart={() => inputRef.current?.focus()}
+            onClick={handleFocus}
+            onTouchStart={handleFocus}
             fontSize={fontSize}
           />
         </Layer>
