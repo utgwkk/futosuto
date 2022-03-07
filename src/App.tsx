@@ -12,9 +12,9 @@ import ShirokoImg from "./assets/shiroko.png";
 
 const WIDTH = 858;
 const HEIGHT = 1124;
-const FONT_SIZE = 120;
+const FONT_SIZE = 90;
 const AREA_HEIGHT = 400;
-const ESTIMATED_TEXT_PER_LINE = (WIDTH - FONT_SIZE * 4) / (FONT_SIZE * 1.5);
+const ESTIMATED_TEXT_PER_LINE = (WIDTH - FONT_SIZE * 6) / (FONT_SIZE * 1.5);
 
 function App() {
   const [text, setText] = useState(() => {
@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     const lineNum = Math.ceil(text.length / ESTIMATED_TEXT_PER_LINE);
     const computedHeight = Math.max(lineNum * FONT_SIZE, 1);
-    setFontSize(FONT_SIZE * Math.sqrt(AREA_HEIGHT / computedHeight));
+    setFontSize(FONT_SIZE * Math.sqrt((AREA_HEIGHT * 2) / computedHeight));
   }, [text]);
 
   const handleFocus = useCallback(() => {
