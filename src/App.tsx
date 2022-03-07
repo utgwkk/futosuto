@@ -27,6 +27,7 @@ function App() {
   const [shirokoImage] = useImage(ShirokoImg);
   const inputRef = useRef<HTMLInputElement>(null);
   const textRef = useRef<Konva.Text>(null);
+  const canvasRef = useRef<Konva.Stage>(null);
 
   // https://math.stackexchange.com/questions/857073/formula-for-adjusting-font-height
   useEffect(() => {
@@ -44,6 +45,19 @@ function App() {
     []
   );
 
+  const handleDownload = useCallback(() => {
+    if (!canvasRef.current) {
+      return;
+    }
+
+    const dataURL = canvasRef.current.toDataURL({ mimeType: "image/png" });
+    const atag = document.createElement("a");
+    atag.href = dataURL;
+    atag.download = "フトスト.png";
+    atag.click();
+    atag.remove();
+  }, []);
+
   return (
     <div className="App">
       <input
@@ -53,7 +67,7 @@ function App() {
         value={text}
         onChange={handleChangeText}
       />
-      <Stage width={WIDTH} height={HEIGHT}>
+      <Stage width={WIDTH} height={HEIGHT} ref={canvasRef}>
         <Layer>
           <Image image={shirokoImage} width={WIDTH} height={HEIGHT} />
           <Text
@@ -72,6 +86,11 @@ function App() {
           />
         </Layer>
       </Stage>
+      <div>
+        <button type="button" onClick={handleDownload}>
+          ダウンロード
+        </button>
+      </div>
       <div>
         <a href="https://twitter.com/parang9494/status/1500431471416266758">
           純粋な不純物@순수한불순물さんはTwitterを使っています 「rkgk
