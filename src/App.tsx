@@ -54,7 +54,7 @@ function App() {
             ref={textRef}
             text={text}
             x={0}
-            y={5}
+            y={0}
             width={WIDTH}
             height={AREA_HEIGHT}
             align="center"
