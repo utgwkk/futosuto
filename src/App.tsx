@@ -25,7 +25,6 @@ function App() {
 
   const [fontSize, setFontSize] = useState(FONT_SIZE);
   const [shirokoImage] = useImage(ShirokoImg);
-  const inputRef = useRef<HTMLInputElement>(null);
   const textRef = useRef<Konva.Text>(null);
   const canvasRef = useRef<Konva.Stage>(null);
 
@@ -35,10 +34,6 @@ function App() {
     const computedHeight = Math.max(lineNum * FONT_SIZE, 1);
     setFontSize(FONT_SIZE * Math.sqrt((AREA_HEIGHT * 2) / computedHeight));
   }, [text]);
-
-  const handleFocus = useCallback(() => {
-    inputRef.current?.focus();
-  }, []);
 
   const handleChangeText = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (e) => setText(e.target.value),
@@ -61,7 +56,6 @@ function App() {
   return (
     <div className="App">
       <input
-        ref={inputRef}
         className="input-text"
         type="text"
         value={text}
@@ -80,8 +74,6 @@ function App() {
             fontFamily="sans-serif"
             align="center"
             verticalAlign="middle"
-            onClick={handleFocus}
-            onTouchStart={handleFocus}
             fontSize={fontSize}
           />
         </Layer>
