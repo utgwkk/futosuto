@@ -19,7 +19,10 @@ code {
   width: 856px;
   height: 400px;
   z-index: 10000;
+  text-align: center;
   color: transparent;
   background-color: transparent;
+  word-wrap: break-word;
+  word-break: break-all;
   border: 0;
 }
