@@ -89,6 +89,23 @@ function App() {
           https:&#x2F;&#x2F;t.co&#x2F;B24Mqk5XRg」 &#x2F; Twitter
         </a>
       </div>
+      <div>
+        <a href="https://twitter.com/parang9494/status/1489448628225781761">
+          純粋な不純物@순수한불순물さんはTwitterを使っています
+          「『ブルーアーカイブ』の1周年、おめでとうございます！
+          最初にPV映像を見た瞬間から清涼感があふれる世界観にはまってしまいました。
+          これからがもっと楽しみです！2周年、3周年、その後まで
+          どんどんフトスト（行きましょう）！😭💕
+          https:&#x2F;&#x2F;t.co&#x2F;WKqKpjbQNL」 &#x2F; Twitter
+        </a>
+      </div>
+      <div>
+        <a href="https://twitter.com/parang9494/status/1474326493916712962">
+          純粋な不純物@순수한불순물さんはTwitterを使っています
+          「メリークリスマス🎄 https:&#x2F;&#x2F;t.co&#x2F;V4XBX8UpbW」 &#x2F;
+          Twitter
+        </a>
+      </div>
     </div>
   );
 }
