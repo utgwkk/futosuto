@@ -25,7 +25,6 @@ function App() {
 
   const [fontSize, setFontSize] = useState(FONT_SIZE);
   const [shirokoImage] = useImage(ShirokoImg);
-  const textRef = useRef<Konva.Text>(null);
   const canvasRef = useRef<Konva.Stage>(null);
 
   // https://math.stackexchange.com/questions/857073/formula-for-adjusting-font-height
@@ -65,7 +64,6 @@ function App() {
         <Layer>
           <Image image={shirokoImage} width={WIDTH} height={HEIGHT} />
           <Text
-            ref={textRef}
             text={text}
             x={0}
             y={0}
