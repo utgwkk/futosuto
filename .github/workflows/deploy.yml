@@ -1,5 +1,4 @@
 name: Deploy
-
 on:
   push:
     branches:
@@ -7,7 +6,6 @@ on:
 
 env:
   AWS_ROLE_ARN: arn:aws:iam::747582436141:role/futosuto-deploy
-
 permissions:
   id-token: write
   contents: read
