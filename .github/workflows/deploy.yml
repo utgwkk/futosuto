@@ -8,6 +8,10 @@ on:
 env:
   AWS_ROLE_ARN: arn:aws:iam::747582436141:role/futosuto-deploy
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
