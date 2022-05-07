@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  AWS_ROLE_ARN: arn:aws:iam::747582436141:role/futosuto-deploy
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,13 +24,13 @@ jobs:
 
       - run: yarn build
 
-      - uses: jakejarvis/s3-sync-action@v0.5.1
+      - uses: aws-actions/configure-aws-credentials@v1
         with:
-          args: --acl public-read --follow-symlinks --delete
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ap-northeast-1
-          SOURCE_DIR: ./build
-          DEST_DIR: futosuto
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          role-session-name: futosuto-deploy-role-session
+          aws-region: ap-northeast-1
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync ./build s3://${{ secrets.AWS_S3_BUCKET }}/futosuto --no-progress \
+            --acl public-read --follow-symlinks --delete
